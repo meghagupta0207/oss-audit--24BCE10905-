@@ -1,35 +1,37 @@
 ---
 
-# **Open Source Audit Scripts — README**
+# **Open Source Audit Scripts**
 
-**Author:** Megha Gupta
-**Course:** Open Source Software
-**Environment:** Ubuntu Linux on WSL / Linux Systems
+**Student Name:** Megha Gupta
+**Roll Number:** 24BCE10905
+**Chosen Software:** Linux Kernel
+**Category:** Operating System
+**License:** GPL V2
+**Why its Interesting:** The Foundation of Everything
 
 ---
 
 ## **Project Overview**
 
-This project contains **five shell scripts** designed to explore Linux systems, open-source software, and file/log analysis. Each script demonstrates key shell scripting concepts including variables, loops, conditional statements, user input, and file handling. The scripts were developed as part of the Open Source Audit project and are intended to run in a Linux environment.
+This repository contains **five shell scripts** designed to explore Linux systems, audit open-source software, analyze logs, and create personalized outputs. The scripts demonstrate key Linux shell concepts including variables, loops, conditional statements, user input, and file management. All scripts are intended to run in a Linux environment (native Linux or WSL on Windows).
 
 ---
 
-## **Script Details**
+## **Scripts Description & Usage**
 
 ### **1. System Identity Report (`script1.sh`)**
 
-**Purpose:**
-Generates a welcome screen showing the Linux system identity. Displays OS distribution, kernel version, current user, home directory, uptime, current date/time, and license information.
+**Description:**
+Generates a system welcome screen with OS distribution, kernel version, logged-in user, home directory, uptime, current date/time, and license information.
 
-**Concepts Used:**
+**Dependencies:**
 
-* Variables
-* Command substitution (`$()`)
-* `echo` formatting
+* `uname`, `uptime`, `whoami`, `date`
 
-**Usage:**
+**Step-by-step to run:**
 
 ```bash
+cd ~/your_scripts_folder
 chmod +x script1.sh
 ./script1.sh
 ```
@@ -38,40 +40,38 @@ chmod +x script1.sh
 
 ### **2. FOSS Package Inspector (`script2.sh`)**
 
-**Purpose:**
-Checks if a specified software package (e.g., Firefox) is installed, prints its version and license information, and provides a brief description of its purpose.
+**Description:**
+Checks if a specified package (like Firefox) is installed, prints version/license info, and provides a brief description of the package’s purpose.
 
-**Concepts Used:**
+**Dependencies:**
 
-* `if-then-else` statements
-* `case` statement
-* Package querying with `dpkg -l`
-* Piping with `grep`
+* `dpkg`, `grep`
 
-**Usage:**
+**Step-by-step to run:**
 
 ```bash
+cd ~/your_scripts_folder
 chmod +x script2.sh
 ./script2.sh
 ```
+
+*Optional:* Change the package inside the script by editing the `PACKAGE` variable.
 
 ---
 
 ### **3. Disk and Permission Auditor (`script3.sh`)**
 
-**Purpose:**
-Loops through a list of important system directories, reports disk usage, ownership, and permissions. Includes an optional check for software configuration directories.
+**Description:**
+Audits important system directories to display permissions, owner, and disk usage. Optionally checks software config directories.
 
-**Concepts Used:**
+**Dependencies:**
 
-* `for` loops
-* `df`, `du`, `ls -ld`
-* `awk` / `cut` for field extraction
-* Conditional checks
+* `ls`, `du`, `awk`, `cut`
 
-**Usage:**
+**Step-by-step to run:**
 
 ```bash
+cd ~/your_scripts_folder
 chmod +x script3.sh
 ./script3.sh
 ```
@@ -80,20 +80,17 @@ chmod +x script3.sh
 
 ### **4. Log File Analyzer (`script4.sh`)**
 
-**Purpose:**
-Reads a log file line by line, counts the number of occurrences of a keyword (default = “error”), prints a summary, and displays the last 5 matching lines. Includes a retry loop if the file is empty.
+**Description:**
+Counts occurrences of a keyword (default = `error`) in a log file and prints a summary. Also prints last 5 matching lines.
 
-**Concepts Used:**
+**Dependencies:**
 
-* `while read` loop
-* `if` conditional
-* Counter variables
-* Command-line arguments `$1`, `$2`
-* `grep` and `tail`
+* `grep`, `tail`
 
-**Usage:**
+**Step-by-step to run:**
 
 ```bash
+cd ~/your_scripts_folder
 chmod +x script4.sh
 ./script4.sh /var/log/syslog error
 ```
@@ -102,36 +99,48 @@ chmod +x script4.sh
 
 ### **5. Open Source Manifesto Generator (`script5.sh`)**
 
-**Purpose:**
-Generates a personalized open-source philosophy paragraph by asking the user three interactive questions. Saves the manifesto to a `.txt` file with a timestamp.
+**Description:**
+Asks the user three questions interactively and generates a personalized open-source philosophy paragraph. Saves output to `manifesto_<username>.txt`.
 
-**Concepts Used:**
+**Dependencies:**
 
-* `read` for user input
-* String concatenation
-* Writing to a file (`>` and `>>`)
-* Displaying file contents with `cat`
-* Date command
-* Alias concept demonstrated in comments
+* `read`, `date`, `cat`
 
-**Usage:**
+**Step-by-step to run:**
 
 ```bash
+cd ~/your_scripts_folder
 chmod +x script5.sh
 ./script5.sh
 ```
 
 ---
 
-## **Folder Structure**
+## **General Notes**
 
-```
-project_folder/
+* **Linux Environment:** Scripts are tested on Ubuntu 20.04 via WSL and native Linux. For Windows users, **copy scripts to `/home/<username>`** for proper permissions.
+* **Executable Permission:** Always run `chmod +x <script>.sh` before execution.
+* **Optional Screenshots:** Screenshots of script execution can be stored in a `screenshots/` folder for reference.
+* **Dependencies:** Most scripts use standard Linux commands (`dpkg`, `grep`, `awk`, `ls`, `du`, `tail`) that are available in most distributions.
+
+---
+
+## **Repository Structure Example**
+
+```text
+OpenSourceAudit/
 │
 ├─ script1.sh
 ├─ script2.sh
 ├─ script3.sh
 ├─ script4.sh
 ├─ script5.sh
-├─ README.md
+└─README.md
+ 
 ```
+
+---
+
+---
+
+
